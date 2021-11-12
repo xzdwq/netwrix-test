@@ -13,7 +13,7 @@ div.post-item
       div Website
       div +8989
     //- Description
-    div.post-distributor
+    div.post-pertner
       div Distributor
 </template>
 <script>
