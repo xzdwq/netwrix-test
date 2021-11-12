@@ -1,0 +1,248 @@
+@import "./variables.scss"
+
+@mixin backgroundImg($path, $position: center center, $repeat: no-repeat)
+  background:
+    image: url($path)
+    position: $position
+    repeat: $repeat
+    size: cover
+
+@mixin alignEl($align)
+  display: flex
+  justify-content: $align
+  align-items: center
+
+/**
+  * BASE
+  */
+
+*,
+*::before,
+*::after
+  box-sizing: border-box
+
+html
+  line-height: 1.15
+  -webkit-text-size-adjust: 100%
+  font-family: "Open Sans", sans-serif
+
+body,
+p
+  margin: 0
+  padding: 0
+  line-height: calc(#{$line-height} - 5px)
+
+body
+  background-color: #F2F2F2
+
+img
+  border-style: none
+
+::placeholder
+  color: $placeholder-color
+
+#app
+  width: 100%
+
+.center
+  @include alignEl(center)
+
+/**
+  * HEADER
+  */
+.logo
+  height: 87px
+  padding-left: 120px
+  @include alignEl(flex-start)
+  background-color: #FFF
+
+.filter-box
+  @include backgroundImg($filter-box-bg)
+  width: 100%
+  height: 500px
+
+.header-box
+  padding: 0 22% 0 22%
+  height: 100%
+
+.header-text
+  line-height: $line-height
+  font-size: 45px
+  color: #FFFFFF
+  font-weight: bold
+  width: 100%
+
+.text-title
+  text-align: center
+  justify-content: center
+  display: flex
+  flex-wrap: wrap
+  span:first-child
+    padding-right: 10px
+
+.text-description
+  text-align: center
+  padding: 10px 5em 0 5em
+  font-size: 15px
+  font-weight: normal
+
+.search-box
+  position: relative
+  padding-top: 2em
+  width: 100%
+  input
+    width: 100%
+    font-size: 15px
+    border: 1px solid #fff
+    border-radius: 5px
+    padding: $input-padding
+    &:focus
+      outline: 2px solid #67ace8
+
+.search-ico
+  @include backgroundImg($search-ico-bg)
+  cursor: pointer
+  width: 17px
+  height: 18px
+  position: absolute
+  right: 10px
+
+.filters-box
+  position: relative
+  padding-top: 2em
+  select
+    cursor: pointer
+    appearance: none
+    -webkit-appearance: none
+    background: url($rectangle-ico-bg) no-repeat right transparent
+    background-position: calc(100% - 10px) calc(1em + 2px), calc(100% - 16px) calc(1em + 2px), 100% 0
+    padding: 0 1em 0 1em
+    width: 100%
+    line-height: inherit
+    border: 2px solid #fff
+    min-width: 200px
+    color: #FFFFFF
+    &:focus
+      outline: 2px solid #67ace8
+
+.select-box
+  @include alignEl(center)
+  width: 100%
+
+.border
+  border-radius: 5px
+
+.border-left
+  border-radius: 5px 0 0 5px
+
+.border-right
+  border-radius: 0 5px 5px 0
+  margin-left: -2px
+
+.rectangle-ico
+  @include backgroundImg($rectangle-ico-bg)
+  cursor: pointer
+  width: 8px
+  height: 7px
+  position: absolute
+  right: 10px
+
+.pr-1em
+  padding-right: 1em
+  width: 100%
+
+/**
+  * BODY-LIST
+  */
+.body-list
+  width: 100%
+  position: relative
+  @include alignEl(center)
+  padding: 3em 0 3em 0
+
+/**
+  * POST-ITEM
+  */
+.post-item
+  @include alignEl(center)
+  width: 80%
+  box-shadow: 0px 1px 2px rgba(5, 27, 43, 0.14)
+  background-color: #FFF
+  min-height: 150px
+  height: auto
+  .inside-el
+    @include alignEl(center)
+    align-items: flex-start
+    width: 100%
+    // height: 50%
+    .post-logo-box
+      padding: 0 5em 0 5em
+    .post-logo
+      @include backgroundImg($post-logo-bg)
+      flex: 0
+      width: 100px
+      height: 80px
+    .post-body
+      flex: 3
+      .post-title
+        font-weight: bold
+    .post-link
+      flex: 1
+      padding-left: 1em
+      border-right: 1px solid #DCDEE0
+    .post-distributor
+      flex: 1
+      padding: 0 2em
+
+@media screen and (max-width: $mobile-screen)
+  .logo
+    justify-content: center
+    padding-left: 0px
+
+  .filter-box
+    height: 600px
+
+  .header-box
+    padding: 0 10% 0 10%
+
+  .header-text
+    font-size: 40px
+
+  .text-title
+    padding: 0 3em 0 3em
+
+  .search-box
+    width: 80%
+
+  .select-box
+    display: block
+    width: 80%
+    .pr-1em
+      padding-right: 0
+    .filters-box
+      padding-top: 10px
+      .border-left,
+      .border-right
+        border-radius: 5px
+        margin: 0
+
+  .post-item
+    width: 60%
+    .inside-el
+      display: block
+      height: 100%
+      padding-top: 1em
+      padding-left: 1em
+      .post-logo-box
+        padding: 0
+      .post-body
+        padding: 1em 0 1em 0
+        .post-title
+          font-weight: bold
+      .post-link
+        padding-top: 1em
+        padding-left: 0
+        border-right: none
+        border-top: 1px solid #DCDEE0
+      .post-distributor
+        padding: 0
