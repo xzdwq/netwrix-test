@@ -6,9 +6,9 @@ div
       :key="item.id"
     )
       PostItem(:item="item")
-  div(v-else-if="load")
+  div(v-else-if="$store.getters.load")
     div.body-list Please wait…
-  div(v-else-if="!load && $store.getters.query || $store.getters.selectParams")
+  div(v-else-if="!$store.getters.load && $store.getters.query || $store.getters.selectParams")
     div.body-list Your search parameters did not match any partners. Please try different search.
   div(v-else)
     div.body-list No data
@@ -18,19 +18,14 @@ div
 import axios from 'axios'
 export default {
   name: 'Body',
-  data() {
-    return {
-      load: false
-    }
-  },
   async mounted() {
-    this.load = true
+    this.$store.commit('load', true)
     await axios.get('api/find')
       .then(data => {
         this.$store.commit('partners', data.data.data)
       })
       .finally(() => {
-        this.load = false
+        this.$store.commit('load', false)
       })
   }
 }

@@ -67,6 +67,7 @@ export default {
 
       this.$store.commit('query', query)
       this.$store.commit('selectParams', type_id || country_id || state_id || null)
+      this.$store.commit('load', true)
       await axios.get('api/find', {
         params: {
           query: query,
@@ -79,6 +80,9 @@ export default {
       })
         .then(data => {
           this.$store.commit('partners', data.data.data)
+        })
+        .finally(() => {
+          this.$store.commit('load', false)
         })
     },
     // Type (status)
