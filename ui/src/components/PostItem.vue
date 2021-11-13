@@ -4,20 +4,27 @@ div.post-item
     //- Logo
     div.post-logo-box
       div.post-logo
+        img(:src="getImgUrl(item.logo)")
     //- Bidy
     div.post-body
-      div.post-title Tango Technology
-      div Sydney, Level 7, 171 Clarence Street
+      div.post-title {{ item.company }}
+      div {{ item.address }}
     //- Link
     div.post-link
-      div Website
-      div +8989
+      a(:href="item.website" target="_blank") Website
+      div {{ item.phone }}
     //- Description
     div.post-pertner
-      div Distributor
+      div {{ item.status?.name || '' }}
 </template>
 <script>
 export default {
-  name: 'PostItem'
+  name: 'PostItem',
+  props: ['item'],
+  methods: {
+    getImgUrl(name) {
+      return require('../assets/'+name)
+    }
+  }
 }
 </script>

@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import store from "@/store/store"
 
 import App from '@/App.vue'
 import components from "@/components/components"
@@ -11,4 +12,6 @@ components.forEach(component => {
   app.component(component.name, component)
 })
 
-app.mount('#app')
+app
+  .use(store)
+  .mount('#app')

@@ -7,6 +7,8 @@ import { AppController } from '@src/app.controller';
 import { AppService } from '@src/app.service';
 import { LocStateModule } from '@src/loc_state/loc_state.module';
 import { LocCountryModule } from '@src/loc_country/loc_country.module';
+import { PartnerLocatorModule } from '@src/partner_locator/partner_locator.module';
+import { StatusModule } from '@src/status/status.module';
 
 @Module({
   imports: [
@@ -29,7 +31,9 @@ import { LocCountryModule } from '@src/loc_country/loc_country.module';
       })
     }),
     LocStateModule,
-    LocCountryModule
+    LocCountryModule,
+    StatusModule,
+    PartnerLocatorModule
   ],
   controllers: [AppController],
   providers: [AppService],

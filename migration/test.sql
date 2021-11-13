@@ -1,3 +1,4 @@
+-- loc_country
 INSERT INTO `loc_country` (`country_id`, `name`, `short_name`) VALUES
 	(1, 'Afghanistan', 'AF'),
 	(2, 'Albania', 'AL'),
@@ -245,7 +246,7 @@ INSERT INTO `loc_country` (`country_id`, `name`, `short_name`) VALUES
 	(246, 'Kosovo', 'KSV'),
 	(243, 'Worldwide', 'WW');
 
-
+-- loc_state
 INSERT INTO `loc_state` (`state_id`, `name`, `short_name`, `country_id`) VALUES
 	(1, '[Nation Wide]', 'nostate', 226),
 	(2, 'Alabama', 'AL', 226),
@@ -356,3 +357,18 @@ INSERT INTO `loc_state` (`state_id`, `name`, `short_name`, `country_id`) VALUES
 	(108, 'Uttar Pradesh', 'UP', 98),
 	(109, 'Uttarakhand', 'UT', 98),
 	(110, 'West Bengal', 'WB', 98);
+
+-- status
+INSERT INTO `status` (`name`) VALUES
+	('MSP Partner'),
+	('Preferred Partner'),
+	('Premium Partner'),
+	('Elite Partner'),
+	('Distributor');
+
+-- partner_locator
+INSERT INTO `partner_locator` (`company`, `status_id`, `logo`, `address`, `website`, `phone`, `countries_coverd`, `states_coverd`) VALUES
+	('Tango Technology', 5, 'distributor.png', 'Sydney, Level 7, 171 Clarence Street', 'tango.com', '+61 2 8001 0250', '[US, CA, VE, TG, SZ, SCT, RU]', '[AZ, GU, KS]'),
+	('Blue Turtle Technologies', 4, 'elite.png', 'Midrand, Block E, Midridge Office Estate, International Business Gateway, Cnr New Road & Sixth', 'turtle.com', '+39 0461 997 111', '[US, CA, PK, ND, NP, LV]', '[AL, AZ, NH, MN, WB]'),
+	('Novus Insight (Connecticut Center for Advanced Technology)', 1, 'msp.png', 'East Hartford, 222 Pitkin Street', 'msp.com', '+8605198496', '[US, CA, LB, KG, IM, GW, GF, AQ]', '[MZ, MN, LD, AS, ON, NU]'),
+	('Soway Information&Technology (Shanghai) Co., LTD', 2, 'preferred.png', 'Room 606, No#20 Building, Qibao International, 8633 Lane, Zhongchun Road, Minhang District Shanghai, China', 'preffered.com', '+86 21 6031 7626', '[US, CA, AF, AR, MM, SK, WW]', '[AB, VY, PR, BR, CH, CT]');

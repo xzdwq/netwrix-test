@@ -1,4 +1,5 @@
 @import "./variables.scss"
+@import "./select.sass"
 
 @mixin backgroundImg($path, $position: center center, $repeat: no-repeat)
   background:
@@ -110,6 +111,7 @@ img
 .filters-box
   position: relative
   padding-top: 2em
+  width: 100%
   select
     cursor: pointer
     appearance: none
@@ -158,7 +160,9 @@ img
   width: 100%
   position: relative
   @include alignEl(center)
-  padding: 3em 0 3em 0
+  padding: 2em 0 0 0
+  &:last-child
+    padding-bottom: 2em
 
 /**
   * POST-ITEM
@@ -172,22 +176,22 @@ img
   height: auto
   .inside-el
     @include alignEl(center)
-    align-items: flex-start
+    align-items: stretch
     width: 100%
-    // height: 50%
+    padding: 10px
     .post-logo-box
-      padding: 0 5em 0 5em
+      padding: 0 3em
+      @include alignEl(center)
     .post-logo
-      @include backgroundImg($post-logo-bg)
       flex: 0
       width: 100px
       height: 80px
     .post-body
-      flex: 3
+      flex: 6
       .post-title
         font-weight: bold
     .post-link
-      flex: 1
+      flex: 2
       padding-left: 1em
       border-right: 1px solid #DCDEE0
     .post-pertner
@@ -231,10 +235,10 @@ img
     .inside-el
       display: block
       height: 100%
-      padding-top: 1em
-      padding-left: 1em
+      padding: 1em
       .post-logo-box
         padding: 0
+        display: block
       .post-body
         padding: 1em 0 1em 0
         .post-title
